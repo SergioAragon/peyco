@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     
-                                    <img src="/PEYCO1/backend/web/img/stand.jpg" class="girl img-responsive" alt="mesa" />
+                                    <img src="/peyco/backend/web/img/stand.jpg" class="girl img-responsive" alt="mesa" />
                                 </div>
                             </div>
 
@@ -42,7 +42,7 @@
                                     <button type="button" class="btn btn-default get">Get it now</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="<?= '/PEYCO1/backend/web/img/'.$value['imag_adju']  ?>" alt="" class="img-rounded" height="300" width="300">
+                                    <img src="<?= '/peyco/backend/web/img/'.$value['imag_adju']  ?>" alt="" class="img-rounded" height="300" width="300">
                                 </div>                                
                             </div>
 

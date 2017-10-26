@@ -4,7 +4,8 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\web\IdentityInterface;
-
+use yii\db\ActiveRecord;
+use common\models\User;
   ?>
 
 

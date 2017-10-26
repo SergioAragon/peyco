@@ -5,6 +5,7 @@ use yii\grid\GridView;
 use yii\bootstrap\Modal;
 use yii\grid\DataColumn;
 
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ProductoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -19,7 +20,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Create Producto', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,

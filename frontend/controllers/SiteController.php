@@ -20,18 +20,7 @@ use yii\helpers\Html;
  */
 class SiteController extends Controller
 {
-    
-    //public $layout = "main_01";
-
-   /* public function layout(){
-                if (!\Yii::$app->user->isGuest) {
-   $this->layout = "main_01";
-    } else {
-        $this->layout = "main";
-    }
-        return;
-    }*/
-
+   
     public function actionUser()
     {
        // $this->layout = "main";
@@ -49,47 +38,7 @@ class SiteController extends Controller
     
     public function behaviors()
     {
-        /*return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
-                'rules' => [
-                    [
-                        //El administrador tiene permisos sobre las siguientes acciones
-                        'actions' => ['logout', 'signup'],
-                        //Esta propiedad establece que tiene permisos
-                        'allow' => true,
-                        //Usuarios autenticados, el signo ? es para invitados
-                        'roles' => ['?'],
-                        //Este método nos permite crear un filtro sobre la identidad del usuario
-                        //y así establecer si tiene permisos o no
-              
-                        
-                    ],
-                    [
-                       //Los usuarios simples tienen permisos sobre las siguientes acciones
-                       'actions' => ['logout', 'signup'],
-                       //Esta propiedad establece que tiene permisos
-                       'allow' => true,
-                       //Usuarios autenticados, el signo ? es para invitados
-                       'roles' => ['@'],
-                       //Este método nos permite crear un filtro sobre la identidad del usuario
-                       //y así establecer si tiene permisos o no
-                     
-                   ],
-                ],
-            ],
-     //Controla el modo en que se accede a las acciones, en este ejemplo a la acción logout
-     //sólo se puede acceder a través del método post
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];*/
-
-
+   
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -143,13 +92,7 @@ class SiteController extends Controller
      */
     public function actions()
     {
-        /*if (Yii::$app->user->isGuest) {
-   $this->layout = "main";
-   //return $this->render('index');
-    } else {
-        $this->layout = "main_01";
-        //return $this->render('user');
-    }*/
+       
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -176,29 +119,6 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-
-
-   /* public function actionLogin()
-    {
-         $this->layout='login';
-
-        if (!\Yii::$app->user->isGuest) {
-
-          return $this->goHome();
-
-        }
-
-        $model=new loginForm();
-        if($model->load(Yii::$app->request->post()) && $model->login() )
-            {
-                return $this->goBack();
-            }else{
-                return $this->render('login',[
-                    'model'=>$model,
-                ]);
-            }
-        }*/
-
 
     public function actionLogin()
     {

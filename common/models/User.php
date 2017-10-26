@@ -28,6 +28,14 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
+    public static function tableName()
+    {
+        return '{{%clientes}}';
+        //return '{{%user}}';
+        //return ['%user'=>'{{%clientes}}'];
+        
+    }
+
          public $role;
 
     public static function isUserAdmin($id)
@@ -55,11 +63,7 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
-        return '{{%user}}';
-        //return '{{%clientes}}';
-    }
+    
 
     /**
      * @inheritdoc
