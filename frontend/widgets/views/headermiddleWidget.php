@@ -6,6 +6,7 @@ use yii\bootstrap\NavBar;
 use yii\web\IdentityInterface;
 use yii\db\ActiveRecord;
 use common\models\User;
+
   ?>
 
 
@@ -46,7 +47,7 @@ use common\models\User;
                                 
                             $menuItems = [
                                 ['label' => 'Inicio', 'url' => ['/site/index']],
-                                ['label' => 'Account', 'url' => ['/site/account']],
+                                
                                 ['label' => 'Cart', 'url' => ['/site/cart']],
                                 ['label' => 'Contact', 'url' => ['/site/contact']],
                             ];      
@@ -54,6 +55,7 @@ use common\models\User;
                                         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
                                         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
                                     } else {
+                                        $menuItems[] = ['label' => 'Perfil', 'url' => ['/site/view', 'id' => Yii::$app->user->identity->id]];
                                         $menuItems[] = '<li>'
                                             . Html::beginForm(['/site/logout'], 'post')
                                             . Html::submitButton(

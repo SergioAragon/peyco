@@ -7,6 +7,9 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use backend\assets\AppAsset;
 use backend\controllers;
+use yii\filters\AccessControl;
+use yii\db\ActiveRecord;
+use backend\models\Clientes;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -245,8 +248,24 @@ use backend\controllers;
                             <li><?php 
                             $menuItems = [
                                 ['label' => 'Inicio', 'url' => ['/site/index']],
+                                //['label' => 'Admin', 'url' => ['/site/user']],
                             ];
                             
+                            /*if (Yii::$app->user->isGuest) {
+                                        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+                                        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+                                    } else {                                        
+                                        $menuItems[] = '<li>'
+                                            . Html::beginForm(['/site/logout'], 'post')
+                                            . Html::submitButton(
+                                                'Logout (' . Yii::$app->user->identity->username . ')',
+                                                ['class' => 'btn btn-link logout']
+                                            )
+                                            . Html::endForm()
+                                            . '</li>';
+                                    }
+*/
+
                                 $menuItems[] = '<li>'
                                     . Html::beginForm(['/site/logout'], 'post')
                                     . Html::submitButton(

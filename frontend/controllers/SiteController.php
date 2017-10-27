@@ -14,6 +14,9 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\User;
 use yii\helpers\Html;
+use backend\models\Clientes;
+use backend\models\ClientesSearch;
+
 
 /**
  * Site controller
@@ -27,10 +30,7 @@ class SiteController extends Controller
         return $this->render("index");
     }
 
-    public function actionAdmin()
-    {
-        return $this->render("admin");
-    }
+    
 
     /**
      * @inheritdoc
@@ -130,8 +130,13 @@ class SiteController extends Controller
                 
                 Yii::$app->user->logout();
                 
-                return $this->redirect(["../../backend/web/site/index"]);
-                
+               return $this->redirect(["../../backend/web/site/index", [
+                    'model' => $model->username,
+                    ]]);
+
+                    /*return $this->render('admin', [
+                        'model' => $model,
+                    ]);*/
                }
                else
                {
@@ -147,7 +152,15 @@ class SiteController extends Controller
                     {
                
                     Yii::$app->user->logout();
-                    return $this->redirect(["../../backend/web/site/index"]);            
+
+                    return $this->redirect(["../../backend/web/site/index", [
+                    'model' => $model->username,
+                    ]]);
+
+                    /*return $this->render('admin', [
+                        'model' => $model,
+                    ]);*/
+
                     }
                    else
                    {
@@ -161,6 +174,17 @@ class SiteController extends Controller
                     ]);
                 }
         }
+
+
+    public function actionAdmin()
+    {
+       // return $this->render("admin");
+        /*return $this->render('admin', [
+            'model' => $model,
+        ]);*/
+        return $this->redirect(["../../backend/web/site/index", [
+                    'model' => $model]]);
+    }
 
 
 
@@ -294,6 +318,22 @@ class SiteController extends Controller
 
         return $this->render('cart');
         
+    }
+
+    public function actionView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+    protected function findModel($id)
+    {
+        if (($model = Clientes::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 
 }
