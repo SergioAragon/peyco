@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <div class="col-sm-4"><?= $form->field($model, 'apellidos')->textInput(['maxlength' => true]) ?></div>
 
-    <div class="col-sm-4"><?= $form->field($model, 'cedula')->textInput() ?></div>
+    
 
     <div class="col-sm-4"><?= $form->field($model, 'telefono')->textInput() ?></div>
 

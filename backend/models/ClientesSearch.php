@@ -18,7 +18,7 @@ class ClientesSearch extends Clientes
     public function rules()
     {
         return [
-            [['id', 'cedula', 'telefono', 'activate', 'status', 'role'], 'integer'],
+            [['id', 'telefono', 'activate', 'status', 'role'], 'integer'],
             [['nombres', 'apellidos', 'username', 'email', 'password_hash', 'auth_key', 'access_token', 'created_at', 'updated_at'], 'safe'],
         ];
     }
@@ -60,7 +60,7 @@ class ClientesSearch extends Clientes
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'cedula' => $this->cedula,
+            //'cedula' => $this->cedula,
             'telefono' => $this->telefono,
             'activate' => $this->activate,
             'status' => $this->status,
