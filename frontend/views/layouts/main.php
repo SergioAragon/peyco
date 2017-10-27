@@ -250,7 +250,7 @@ AppAsset::register($this);
         $('#cart').modal();
 
 
-        $.get('<?= Yii::$app->homeUrl?>shoppingcart/addcart/',+ id, function(data) {
+        $.get('<?= 'PEYCO/backend/web/'?>shoppingcart/addcart/',+ id, function(data) {
 
         });
     }
