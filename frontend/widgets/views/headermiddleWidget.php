@@ -6,7 +6,6 @@ use yii\bootstrap\NavBar;
 use yii\web\IdentityInterface;
 use yii\db\ActiveRecord;
 use common\models\User;
-
   ?>
 
 

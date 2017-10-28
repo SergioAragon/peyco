@@ -32,6 +32,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         //return '{{%clientes}}';
         return '{{%user}}';
+        //return ['%user'=>'{{%clientes}}'];
         
     }
 

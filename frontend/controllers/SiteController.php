@@ -30,7 +30,10 @@ class SiteController extends Controller
         return $this->render("index");
     }
 
-    
+    public function actionAdmin()
+    {
+        return $this->render("admin");
+    }
 
     /**
      * @inheritdoc
@@ -130,13 +133,8 @@ class SiteController extends Controller
                 
                 Yii::$app->user->logout();
                 
-               return $this->redirect(["../../backend/web/site/index", [
-                    'model' => $model->username,
-                    ]]);
-
-                    /*return $this->render('admin', [
-                        'model' => $model,
-                    ]);*/
+                return $this->redirect(["../../backend/web/site/index"]);
+                
                }
                else
                {
@@ -152,15 +150,7 @@ class SiteController extends Controller
                     {
                
                     Yii::$app->user->logout();
-
-                    return $this->redirect(["../../backend/web/site/index", [
-                    'model' => $model->username,
-                    ]]);
-
-                    /*return $this->render('admin', [
-                        'model' => $model,
-                    ]);*/
-
+                    return $this->redirect(["../../backend/web/site/index"]);            
                     }
                    else
                    {
@@ -174,17 +164,6 @@ class SiteController extends Controller
                     ]);
                 }
         }
-
-
-    public function actionAdmin()
-    {
-       // return $this->render("admin");
-        /*return $this->render('admin', [
-            'model' => $model,
-        ]);*/
-        return $this->redirect(["../../backend/web/site/index", [
-                    'model' => $model]]);
-    }
 
 
 
@@ -319,6 +298,7 @@ class SiteController extends Controller
         return $this->render('cart');
         
     }
+
 
     public function actionView($id)
     {
