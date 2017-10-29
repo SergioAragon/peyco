@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\PedidoSearch */
+/* @var $searchModel backend\models\PedidoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Pedidos';
@@ -25,12 +25,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id_pedido',
+            'cliente_id',
             'fecha_pedido',
             'estado_id',
             'municipio_id',
             'direccion',
             // 'medidas',
-            // 'tipo_stand',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

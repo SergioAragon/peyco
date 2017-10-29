@@ -54,6 +54,7 @@ use common\models\User;
                                         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
                                         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
                                     } else {
+                                        $menuItems[] = ['label' => 'Pedido', 'url' => ['/site/pedido']];
                                         $menuItems[] = ['label' => 'Perfil', 'url' => ['/site/view', 'id' => Yii::$app->user->identity->id]];
                                         $menuItems[] = '<li>'
                                             . Html::beginForm(['/site/logout'], 'post')

@@ -1,5 +1,7 @@
  <?php 
+
 use yii\helpers\Html; 
+//use backend\models\Pedido;
 
   ?>
 
@@ -33,6 +35,7 @@ use yii\helpers\Html;
                                 
                                 <li><?=Html::a('Cart', ['/site/cart'], ['class'=>"fa fa-shopping-cart"] ) ?> </li>
                                 <li><?=Html::a('Contact', ['/site/contact'] ) ?> </li>
+                                    
                                 
                             </ul>
                         </div>

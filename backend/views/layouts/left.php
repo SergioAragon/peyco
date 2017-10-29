@@ -38,6 +38,7 @@
                     ['label' => 'Materiales', 'url' => ['materiales/index']],
                     ['label' => 'Clientes', 'url' => ['clientes/index']],
                     ['label' => 'Cotización', 'url' => ['cotizacion/index']],
+                    ['label' => 'Pedido', 'url' => ['pedido/index']],
                     [
                         'label' => 'Same tools',
                         'icon' => 'share',

@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use backend\models\Pedido;
 
 /**
- * PedidoSearch represents the model behind the search form about `app\models\Pedido`.
+ * PedidoSearch represents the model behind the search form about `backend\models\Pedido`.
  */
 class PedidoSearch extends Pedido
 {
@@ -19,7 +19,7 @@ class PedidoSearch extends Pedido
     {
         return [
             [['id_pedido', 'estado_id', 'municipio_id'], 'integer'],
-            [['fecha_pedido', 'direccion', 'medidas', 'tipo_stand'], 'safe'],
+            [['fecha_pedido', 'direccion', 'medidas'], 'safe'],
         ];
     }
 
@@ -66,8 +66,7 @@ class PedidoSearch extends Pedido
         ]);
 
         $query->andFilterWhere(['like', 'direccion', $this->direccion])
-            ->andFilterWhere(['like', 'medidas', $this->medidas])
-            ->andFilterWhere(['like', 'tipo_stand', $this->tipo_stand]);
+            ->andFilterWhere(['like', 'medidas', $this->medidas]);
 
         return $dataProvider;
     }
