@@ -17,8 +17,8 @@ $id = Yii::$app->user->identity->id;
 ?>
 
 <div class="pedido-form">
-    <h1><?= Html::encode($this->title) ?></h1>
-    <h3><?= $id = Yii::$app->user->identity->nombres; ?></h3>
+    
+    <h1><?= $id = Yii::$app->user->identity->nombres; ?></h1>
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'pedido-form']); ?>
@@ -28,7 +28,7 @@ $id = Yii::$app->user->identity->id;
 
                 <!--  $form->field($model, 'fecha_pedido')->textInput()  -->
 
-                 <?= $form->field($model, 'cliente_id')->textInput() ?>
+                 <!-- $form->field($model, 'cliente_id')->textInput() -->
 
                 <?= $form->field($model, 'municipio_id')->textInput(['autofocus' => true]) ?>
 

@@ -8,6 +8,7 @@ use backend\models\PedidoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\Clientes;
 
 /**
  * PedidoController implements the CRUD actions for Pedido model.
@@ -51,8 +52,10 @@ class PedidoController extends Controller
      */
     public function actionView($id)
     {
+        //$model->cliente_id = Yii::$app->user->identity->id;
         return $this->render('view', [
             'model' => $this->findModel($id),
+            //'model' => $model,
         ]);
     }
 
@@ -66,12 +69,15 @@ class PedidoController extends Controller
         $model = new Pedido();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            //$model->cliente_id = Yii::$app->user->identity->id;
             return $this->redirect(['view', 'id' => $model->id_pedido]);
         } else {
             return $this->render('create', [
                 'model' => $model,
             ]);
         }
+
     }
 
     /**

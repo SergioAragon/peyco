@@ -19,8 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="pedido-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    
+    <h2><?= $id = Yii::$app->user->identity->nombres; ?></h2>
+        
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id_pedido], ['class' => 'btn btn-primary']) ?>
         
@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id_pedido',
+            'cliente_id',
             //'fecha_pedido',
             //'estado_id',
             'municipio_id',

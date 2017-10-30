@@ -52,7 +52,7 @@ class Pedido extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cliente_id', 'fecha_pedido', 'estado_id', 'direccion', 'medidas'], 'required'],
+            //[['cliente_id', 'fecha_pedido', 'estado_id', 'direccion', 'medidas'], 'required'],
             [['id_pedido', 'cliente_id', 'estado_id', 'municipio_id'], 'integer'],
             [['fecha_pedido'], 'safe'],
             [['direccion', 'medidas'], 'string', 'max' => 20],

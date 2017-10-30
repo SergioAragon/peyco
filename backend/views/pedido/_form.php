@@ -6,6 +6,8 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Pedido */
 /* @var $form yii\widgets\ActiveForm */
+
+//$id = Yii::$app->user->identity->id;
 ?>
 
 <div class="pedido-form">
