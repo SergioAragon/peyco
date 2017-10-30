@@ -13,12 +13,12 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = 'Pedido';
 $this->params['breadcrumbs'][] = $this->title;
-
+$id = Yii::$app->user->identity->id;
 ?>
 
 <div class="pedido-form">
     <h1><?= Html::encode($this->title) ?></h1>
-
+    <h3><?= $id = Yii::$app->user->identity->nombres; ?></h3>
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'pedido-form']); ?>
