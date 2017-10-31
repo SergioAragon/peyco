@@ -14,7 +14,8 @@ use common\models\User;
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                            <a href="index"><img src="/peyco/backend/web/img/logo.jpg" width="180" alt="" /></a>
+                            
                         </div>
                         
                     </div>
@@ -47,11 +48,11 @@ use common\models\User;
                             $menuItems = [
                                 ['label' => 'Inicio', 'url' => ['/site/index']],
                                 
-                                ['label' => 'Cart', 'url' => ['/site/cart']],
-                                ['label' => 'Contact', 'url' => ['/site/contact']],
+                                //['label' => 'Cart', 'url' => ['/site/cart']],
+                                ['label' => 'Contacto', 'url' => ['/site/contact']],
                             ];      
                                if (Yii::$app->user->isGuest) {
-                                        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+                                        $menuItems[] = ['label' => 'Registrarse', ['class'], 'url' => ['/site/signup']];
                                         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
                                     } else {
                                         $menuItems[] = ['label' => 'Pedido', 'url' => ['/site/pedido']];

@@ -7,7 +7,7 @@ use yii\bootstrap\ActiveForm;
 
 <div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
-						<h2>Login to your account</h2>
+						<h2>Ingresar a su cuenta</h2>
 					  <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 							 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 						  <?= $form->field($model, 'password')->passwordInput() ?>

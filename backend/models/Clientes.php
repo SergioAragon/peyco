@@ -64,7 +64,7 @@ class Clientes extends \yii\db\ActiveRecord
             'telefono' => 'Telefono',
             'username' => 'Username',
             'email' => 'Email',
-            'password_hash' => 'Password',
+            'password_hash' => 'Password Hash',
             'auth_key' => 'Auth Key',
             'access_token' => 'Access Token',
             'activate' => 'Activate',

@@ -14,15 +14,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        
-    </p>
+    <p> </p>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            //'id',
             'nombres',
             'apellidos',
             //'cedula',
@@ -33,11 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
             //'auth_key',
             //'access_token',
             //'activate',
-            'status',
+            //'status',
             'created_at',
             //'updated_at',
             //'role',
         ],
     ]) ?>
+
+    <p><?= Html::a('Actualizar', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?></p>
 
 </div>

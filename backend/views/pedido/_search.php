@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\PedidoSearch */
+/* @var $model app\models\PedidoSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -17,8 +17,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_pedido') ?>
 
-    <?= $form->field($model, 'cliente_id') ?>
-
     <?= $form->field($model, 'fecha_pedido') ?>
 
     <?= $form->field($model, 'estado_id') ?>
@@ -28,6 +26,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'direccion') ?>
 
     <?php // echo $form->field($model, 'medidas') ?>
+
+   
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

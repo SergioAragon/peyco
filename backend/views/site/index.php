@@ -7,7 +7,7 @@ $this->title = 'ADMIN';
 <div class="site-index">
 
     <div class="jumbotron">
-    <img src="/PEYCO1/backend/web/img/logo.jpg" width="400" 
+    <img src="/peyco/backend/web/img/logo.jpg" width="400" 
                     alt="Image"/>            
         <h1>Bienvenido Admin!</h1>
     </div>

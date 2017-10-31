@@ -1,25 +1,25 @@
 <?php
 
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \frontend\models\SignupForm */
-
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Formulario de Registro';
-$this->params['breadcrumbs'][] = $this->title;
+/* @var $this yii\web\View */
+/* @var $model backend\models\Clientes */
+
+$this->title = 'Actualizar Datos Cliente: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Clientes', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Actualizar';
 ?>
-<div class="site-signup">
+<div class="clientes-update">
+
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Para registrarse por favor ingresar la información solicitada en los campos:</p>
-
-    <div class="row">
+    
         
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
 
-                
+    		<div class="row">            
 
                   <div class="col-sm-6"><?= $form->field($model, 'nombres')->textInput(['autofocus' => true]) ?></div>
 
@@ -33,9 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="col-sm-6"><?= $form->field($model, 'email') ?></div>
 
-                <div class="col-sm-6"><?= $form->field($model, 'password_hash')->passwordInput() ?></div>
+                <!-- <div class="col-sm-6">< $form->//field($model, 'password_hash')->passwordInput() ></div> -->
 
-
+			</div>
 
                 <div class="form-group">
               <?= Html::submitButton('Enviar', ['class' => 'btn btn-success']) ?>
@@ -43,6 +43,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
             <?php ActiveForm::end(); ?>
-        </div>
-    </div>
+        
 
+</div>

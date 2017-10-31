@@ -14,19 +14,19 @@ use yii\widgets\ActiveForm;
 
     <div class="row">
 
-    <div class="col-sm-4"><?= $form->field($model, 'nombres')->textInput(['maxlength' => true]) ?></div>
+    <div class="col-sm-6"><?= $form->field($model, 'nombres')->textInput(['maxlength' => true]) ?></div>
 
-    <div class="col-sm-4"><?= $form->field($model, 'apellidos')->textInput(['maxlength' => true]) ?></div>
+    <div class="col-sm-6"><?= $form->field($model, 'apellidos')->textInput(['maxlength' => true]) ?></div>
 
     
 
-    <div class="col-sm-4"><?= $form->field($model, 'telefono')->textInput() ?></div>
+    <div class="col-sm-6"><?= $form->field($model, 'telefono')->textInput() ?></div>
 
-    <div class="col-sm-4"><?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?></div>
+    <div class="col-sm-6"><?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?></div>
 
-    <div class="col-sm-4"><?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?></div>
+    <div class="col-sm-6"><?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?></div>
 
-    <div class="col-sm-4"><?= $form->field($model, 'password_hash')->textInput(['maxlength' => true]) ?></div>
+    <div class="col-sm-6"><?= $form->field($model, 'password_hash')->passwordInput() ?></div>
 
     
    <!--  //$form->field($model, 'auth_key')->textInput(['maxlength' => true]) 

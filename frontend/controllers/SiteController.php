@@ -20,6 +20,7 @@ use backend\models\Pedido;
 use backend\models\PedidoSearch;
 use yii\web\NotFoundHttpException;
 
+
 /**
  * Site controller
  */
@@ -225,7 +226,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
-                    return $this->redirect(["site/user"]);
+                    return $this->redirect(["site/login"]);
                 }
             }
         }
@@ -302,26 +303,6 @@ class SiteController extends Controller
     }
 
 
-    public function actionPedido()
-    {
-
-         $model = new Pedido();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
-            $model->cliente_id = Yii::$app->user->identity->id;
-           // return $this->redirect(['viewPedido', 'id' => $model->id_pedido]);
-            return $this->render('viewPedido', [                
-                'model' => $model,]);
-
-        } else {
-            return $this->render('pedido', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-
     public function actionView($id)
     {
         return $this->render('view', [
@@ -335,6 +316,40 @@ class SiteController extends Controller
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+
+    public function actionUpdate($id)
+    {
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+
+    public function actionPedido()
+    {
+
+         $model = new Pedido();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+           
+           $model->cliente_id = Yii::$app->user->identity->id; 
+           // return $this->redirect(['viewPedido', 'id' => $model->id_pedido]);
+            return $this->render('viewPedido', [                
+                'model' => $model,]);
+
+        } else {
+            return $this->render('pedido', [
+                'model' => $model,
+            ]);
         }
     }
 

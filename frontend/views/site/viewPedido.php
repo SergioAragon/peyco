@@ -21,11 +21,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h2><?= $id = Yii::$app->user->identity->nombres; ?></h2>
         
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id_pedido], ['class' => 'btn btn-primary']) ?>
-        
-    </p>
-
     <?= DetailView::widget([
         
         'model' => $model,
@@ -38,7 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'direccion',
             'medidas',
         ],
-        
 
     ]) ?>
 

@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'apellidos') ?>
 
-    <?= $form->field($model, 'cedula') ?>
+    <!-- $form->field($model, 'cedula') -->
 
     <?= $form->field($model, 'telefono') ?>
 

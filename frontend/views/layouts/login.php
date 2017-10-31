@@ -29,7 +29,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <header id="header"><!--header-->
-  <?= headertopWidget::widget();?>
+  <!-- headertopWidget::widget(); -->
   <?= headermiddleWidget::widget();?>   
   <?= headerbottomWidget::widget();?>
     </header><!--/header-->
