@@ -19,7 +19,7 @@ use backend\models\ClientesSearch;
 use backend\models\Pedido;
 use backend\models\PedidoSearch;
 use yii\web\NotFoundHttpException;
-
+use yii\swiftmailer\Mailer;
 
 /**
  * Site controller
@@ -223,17 +223,28 @@ class SiteController extends Controller
     public function actionSignup()
     {
         $model = new SignupForm();
+         
         if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->redirect(["site/login"]);
+            if ($model->sendEmail($model->email)) {
+                if ($user = $model->signup()) {
+                    if (Yii::$app->getUser()->login($user)) {
+            
+                        // Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+                        return $this->redirect(["site/index"]);
+                        } else {
+                            Yii::$app->session->setFlash('error', 'There was an error sending your message.');
+                                return $this->render('signup', [
+                                    'model' => $model,
+                                ]);
+                        }
+           
+                    }
                 }
             }
-        }
 
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
+            return $this->render('signup', [
+                'model' => $model,
+            ]);
     }
 
     /**

@@ -14,7 +14,7 @@ use common\models\User;
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="index"><img src="/peyco/backend/web/img/logo.jpg" width="180" alt="" /></a>
+                            <a href="index"><img src="/peyco/backend/web/img/logo.jpg" width="200" alt="" /></a>
                             
                         </div>
                         

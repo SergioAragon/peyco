@@ -1,4 +1,6 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'admipeyco@gmail.com',
+    'title' => 'Aplicacion Yii',
+    //'salt' => 'fhfytryr78769789',
 ];

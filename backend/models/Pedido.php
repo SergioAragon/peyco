@@ -9,6 +9,7 @@ use Yii;
 // use yii\db\ActiveRecord;
  use yii\web\IdentityInterface;
 use yii\db\Expression;
+//use backend\models\Clientes;
 
 /**
  * This is the model class for table "pedido".
@@ -52,7 +53,8 @@ class Pedido extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            //[['id_pedido', 'fecha_pedido', 'estado_id', 'direccion', 'medidas'], 'required'],
+            //[['id_pedido', 'fecha_pedido', 'cliente_id', 'direccion', 'medidas'], 'required'],
+            //[['cliente_id'], 'required'],
             [['id_pedido', 'cliente_id', 'estado_id', 'municipio_id'], 'integer'],
             [['fecha_pedido'], 'safe'],
             [['direccion', 'medidas'], 'string', 'max' => 20],

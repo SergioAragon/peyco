@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="col-sm-6"><?= $form->field($model, 'email') ?></div>
 
-                <div class="col-sm-6"><?= $form->field($model, 'password_hash')->passwordInput() ?></div>
+                <div class="col-sm-6"><?= $form->field($model, 'password')->passwordInput() ?></div>
 
 
 

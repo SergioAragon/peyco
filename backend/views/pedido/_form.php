@@ -1,10 +1,12 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+//use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 use backend\models\Estado;
 use backend\models\Municipio;
+use backend\models\Clientes;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Pedido */
@@ -13,11 +15,15 @@ use backend\models\Municipio;
 
 <div class="pedido-form">
 
+  <h1><!-- $id = Yii::$app->user->identity->nombres; --></h1>
+
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_pedido')->textInput() ?>
+    <!-- $form->field($model, 'id_pedido')->textInput() -->
 
-    <?= $form->field($model, 'fecha_pedido')->textInput() ?>
+    <!-- $form->field($model, 'fecha_pedido')->textInput() -->
+
+    <?= $form->field($model, 'cliente_id')->Input([Clientes::find()->one(), 'id', 'nombres']);  ?>
 
     <?= $form->field($model, 'estado_id')->DropDownList(
                                   ArrayHelper::map( Estado::find()->all(), 'id_estado', 'descripcion' ),

@@ -40,12 +40,12 @@ class Clientes extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombres', 'apellidos', 'telefono', 'username', 'email', 'password_hash', 'auth_key', 'created_at'], 'required'],
+            [['nombres', 'apellidos', 'telefono', 'username', 'email', 'password', 'auth_key', 'created_at'], 'required'],
             [['telefono', 'activate', 'status', 'role'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['nombres', 'apellidos', 'username'], 'string', 'max' => 20],
             [['email'], 'string', 'max' => 30],
-            [['password_hash'], 'string', 'max' => 60],
+            [['password'], 'string', 'max' => 60],
             [['auth_key'], 'string', 'max' => 32],
             [['access_token'], 'string', 'max' => 250],
         ];
@@ -61,10 +61,10 @@ class Clientes extends \yii\db\ActiveRecord
             'nombres' => 'Nombres',
             'apellidos' => 'Apellidos',
             //'cedula' => 'Cedula',
-            'telefono' => 'Telefono',
+            'telefono' => 'Teléfono',
             'username' => 'Username',
             'email' => 'Email',
-            'password_hash' => 'Password Hash',
+            'password' => 'Password',
             'auth_key' => 'Auth Key',
             'access_token' => 'Access Token',
             'activate' => 'Activate',

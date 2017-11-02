@@ -26,7 +26,7 @@ use yii\widgets\ActiveForm;
 
     <div class="col-sm-6"><?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?></div>
 
-    <div class="col-sm-6"><?= $form->field($model, 'password_hash')->passwordInput() ?></div>
+    <div class="col-sm-6"><?= $form->field($model, 'password')->passwordInput() ?></div>
 
     
    <!--  //$form->field($model, 'auth_key')->textInput(['maxlength' => true]) 

@@ -4,6 +4,7 @@ namespace frontend\models;
 
 use Yii;
 use yii\base\Model;
+//use yii\swiftmailer\Mailer;
 
 /**
  * ContactForm is the model behind the contact form.

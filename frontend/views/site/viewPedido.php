@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 //use frontend\views\site\view;
-use backend\models\Clientes;
+//use backend\models\Clientes;
 
 
 /* @var $this yii\web\View */

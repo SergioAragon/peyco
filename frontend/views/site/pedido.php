@@ -5,15 +5,14 @@
 /* @var $form yii\widgets\ActiveForm */
 // use yii\helpers\Html;
 // use yii\widgets\ActiveForm;
- use backend\models\Pedido;
-use yii\web\View;
+
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 
 $this->title = 'Pedido';
 $this->params['breadcrumbs'][] = $this->title;
-$id = Yii::$app->user->identity->id;
+//$id = Yii::$app->user->identity->id;
 ?>
 
 <div class="pedido-form">
