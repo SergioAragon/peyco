@@ -15,7 +15,7 @@ use Yii;
  * @property string $username
  * @property string $email
  * @property string $password_hash
- * @property string $auth_key
+ * @property string $authKey
  * @property string $access_token
  * @property integer $activate
  * @property integer $status
@@ -40,13 +40,13 @@ class Clientes extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombres', 'apellidos', 'telefono', 'username', 'email', 'password', 'auth_key', 'created_at'], 'required'],
+            [['nombres', 'apellidos', 'telefono', 'username', 'email', 'password', 'authKey', 'created_at'], 'required'],
             [['telefono', 'activate', 'status', 'role'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['nombres', 'apellidos', 'username'], 'string', 'max' => 20],
             [['email'], 'string', 'max' => 30],
             [['password'], 'string', 'max' => 60],
-            [['auth_key'], 'string', 'max' => 32],
+            [['authKey'], 'string', 'max' => 32],
             [['access_token'], 'string', 'max' => 250],
         ];
     }
@@ -65,7 +65,7 @@ class Clientes extends \yii\db\ActiveRecord
             'username' => 'Username',
             'email' => 'Email',
             'password' => 'Password',
-            'auth_key' => 'Auth Key',
+            'authKey' => 'Auth Key',
             'access_token' => 'Access Token',
             'activate' => 'Activate',
             'status' => 'Status',

@@ -5,6 +5,7 @@ use Yii;
 use yii\base\Model;
 use common\models\User;
 
+
 /**
  * Signup form
  */
@@ -65,6 +66,19 @@ class SignupForm extends Model
         ];
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'nombres' => 'Nombres',
+            'apellidos' => 'Apellidos',
+            //'cedula' => 'Cedula',
+            'telefono' => 'Teléfono',
+            'email'=>'Email',
+            'username'=>'Usuario',
+            'password'=>'Contraseña',
+        ];
+    }
+
     /**
      * Signs user up.
      *
@@ -91,24 +105,64 @@ class SignupForm extends Model
 
     public function sendEmail($email)
     {
+        $id = Yii::$app->user->identity->id;
+        $authKey = Yii::$app->user->identity->authKey;
+
+        $subject = "Confirmar registro";
+        $body = "<h2>Click en el enlace para finalizar registro</h2>";
+        $body .= "<a href = http://localhost/sergio/peyco/frontend/web/index.php?r=site/login/confirm&id=" . $id . "&authKey=" . $authKey . ">Confirmar</a>";
+
         return Yii::$app->mailer->compose()
              ->setTo($email)
              ->setFrom([\Yii::$app->params['adminEmail']])
-            ->setSubject('hola')
-            ->setTextBody('hola')
+            ->setSubject($subject)
+            ->setTextBody($body)
             ->send();
     }
+           
 
-        public function attributeLabels()
+     
+    public function confirm()
     {
-        return [
-            'nombres' => 'Nombres',
-            'apellidos' => 'Apellidos',
-            //'cedula' => 'Cedula',
-            'telefono' => 'Teléfono',
-            'email'=>'Email',
-            'username'=>'Usuario',
-            'password'=>'Contraseña',
-        ];
-    }
+            
+            $id = Yii::$app->user->identity->id;
+            $authKey = Yii::$app->user->identity->authKey;
+        
+            if ($id)           
+            {
+                return
+                //Realizamos la consulta para obtener el registro
+               
+                $model = User::find()->where("id=:id", [":id" => $id])
+                ->andWhere("authKey=:authKey", [":authKey" => $authKey]);
+     
+                //Si el registro existe
+                if ($model->count() == 1)
+                {
+                    $activar = User::findOne($id);
+                    $activar->activate = 1;
+                    if ($activar->update())
+                    {
+                        echo "Enhorabuena registro llevado a cabo correctamente, redireccionando ...";
+                        echo "<meta http-equiv='refresh' content='8; ".Url::toRoute("site/login")."'>";
+                        return update();
+                    }
+                    else
+                    {
+                        echo "Ha ocurrido un error al realizar el registro, redireccionando ...";
+                        echo "<meta http-equiv='refresh' content='8; ".Url::toRoute("site/login")."'>";
+                    }
+                 }
+                else //Si no existe redireccionamos a login
+                {
+                    return $this->redirect(["site/login"]);
+                }
+            }
+            else //Si id no es un número entero redireccionamos a login
+            {
+                return $this->redirect(["site/login"]);
+            }
+        
+     }
+
 }

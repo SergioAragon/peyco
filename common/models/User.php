@@ -17,7 +17,7 @@ use yii\db\Expression;
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
- * @property string $auth_key
+ * @property string $authKey
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
@@ -29,10 +29,8 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_ACTIVE = 10;
 
     public static function tableName()
-    {
-        //return '{{%clientes}}';
+    {        
         return '{{%user}}';
-        //return ['%user'=>'{{%clientes}}'];
         
     }
 
@@ -41,7 +39,7 @@ class User extends ActiveRecord implements IdentityInterface
     public static function isUserAdmin($id)
     {
        if (User::findOne(['id' => $id, 'activate' => '1', 'role' => 2])){
-         //$this->user = Yii::$app->getUser()->login($user);
+         
         return true;
        } else {
 
@@ -166,7 +164,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function getAuthKey()
     {
-        return $this->auth_key;
+        return $this->authKey;
     }
 
     /**
@@ -203,7 +201,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function generateAuthKey()
     {
-        $this->auth_key = Yii::$app->security->generateRandomString();
+        $this->authKey = Yii::$app->security->generateRandomString();
     }
 
     /**

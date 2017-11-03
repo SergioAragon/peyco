@@ -225,19 +225,20 @@ class SiteController extends Controller
         $model = new SignupForm();
          
         if ($model->load(Yii::$app->request->post())) {
-            if ($model->sendEmail($model->email)) {
+            
                 if ($user = $model->signup()) {
                     if (Yii::$app->getUser()->login($user)) {
-            
-                        // Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-                        return $this->redirect(["site/index"]);
+                        if ($model->sendEmail($model->email)) {
+                            if ($model->confirm(Yii::$app->user->getId())) {
+                         Yii::$app->session->setFlash('success', 'Debe confirmar el registro en la cuenta de correo.');
+                        return $this->redirect(["site/login"]);
                         } else {
                             Yii::$app->session->setFlash('error', 'There was an error sending your message.');
                                 return $this->render('signup', [
                                     'model' => $model,
                                 ]);
+                            }
                         }
-           
                     }
                 }
             }
@@ -363,5 +364,24 @@ class SiteController extends Controller
             ]);
         }
     }
+
+
+    public function actionConfirm()
+    {
+        $model = new User;
+        if (Yii::$app->request->get())
+        {       
+            if ($model->confirm(Yii::$app->user->identity->id)) {
+
+                return $this->render('login', [                
+                'model' => $model,]);
+            } else {
+            return $this->render('signup', [
+                'model' => $model,
+            ]);
+        }
+
+        }
+     }
 
 }
