@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Clientes */
 
-$this->title = $model->nombres;
-$this->params['breadcrumbs'][] = ['label' => 'Clientes', 'url' => ['index']];
+$this->title = 'Perfil: ' . $model->nombres .' '. $model->apellidos;
+$this->params['breadcrumbs'][] = ['label' => 'Cliente', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="clientes-view">
@@ -20,6 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             //'id',
+
             'nombres',
             'apellidos',
             //'cedula',
@@ -37,6 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-    <p><?= Html::a('Actualizar', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?></p>
+    <p><?= Html::a('Actualizar', ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?></p>
 
 </div>

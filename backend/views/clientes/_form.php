@@ -26,7 +26,7 @@ use yii\widgets\ActiveForm;
 
     <div class="col-sm-6"><?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?></div>
 
-    <div class="col-sm-6"><?= $form->field($model, 'password')->passwordInput() ?></div>
+    <div class="col-sm-6"><!--?= $form->field($model, 'password')->passwordInput() ?--></div>
 
     
    <!--  //$form->field($model, 'auth_key')->textInput(['maxlength' => true]) 
@@ -43,10 +43,11 @@ use yii\widgets\ActiveForm;
 
     //$form->field($model, 'role')->textInput() 
  -->
+  <div class="col-sm-6"><?=$form->field($model, 'role')->textInput()?></div>
     </div>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Registrar' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

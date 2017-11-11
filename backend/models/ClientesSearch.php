@@ -18,8 +18,8 @@ class ClientesSearch extends Clientes
     public function rules()
     {
         return [
-            [['id', 'telefono', 'activate', 'status', 'role'], 'integer'],
-            [['nombres', 'apellidos', 'username', 'email', 'password', 'authKey', 'access_token', 'created_at', 'updated_at'], 'safe'],
+            [['id', 'telefono', 'activate', 'role'], 'integer'],
+            [['nombres', 'apellidos', 'username', 'email', 'password', 'authKey', 'password_reset_token', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -63,7 +63,7 @@ class ClientesSearch extends Clientes
             //'cedula' => $this->cedula,
             'telefono' => $this->telefono,
             'activate' => $this->activate,
-            'status' => $this->status,
+            //'status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'role' => $this->role,
@@ -75,7 +75,7 @@ class ClientesSearch extends Clientes
             ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'password', $this->password])
             ->andFilterWhere(['like', 'authKey', $this->authKey])
-            ->andFilterWhere(['like', 'access_token', $this->access_token]);
+            ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token]);
 
         return $dataProvider;
     }

@@ -3,6 +3,8 @@
 namespace backend\models;
 
 use Yii;
+// use yii\db\Expression;
+// use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "cotizacion".
@@ -32,7 +34,8 @@ class Cotizacion extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_cotizacion', 'cliente_id', 'producto_id', 'fecha'], 'required'],
+            //[['id_cotizacion', 'cliente_id', 'producto_id', 'fecha'], 'required'],
+            [['cliente_id', 'producto_id'], 'required'],
             [['id_cotizacion', 'cliente_id', 'producto_id'], 'integer'],
             [['fecha'], 'safe'],
             [['cliente_id'], 'exist', 'skipOnError' => true, 'targetClass' => Clientes::className(), 'targetAttribute' => ['cliente_id' => 'id_clientes']],
@@ -53,12 +56,25 @@ class Cotizacion extends \yii\db\ActiveRecord
         ];
     }
 
+
+    /*public function behaviors()
+    {
+        return [
+            [
+                  'class' => TimestampBehavior::className(),
+                  'createdAtAttribute' => 'fecha',
+                  //'updatedAtAttribute' => 'updated_at',
+                  'value' => new Expression('NOW()'),
+              ],
+        ];
+    }*/
+
     /**
      * @return \yii\db\ActiveQuery
      */
     public function getCliente()
     {
-        return $this->hasOne(Clientes::className(), ['id_clientes' => 'cliente_id']);
+        return $this->hasOne(Clientes::className(), ['id' => 'cliente_id']);
     }
 
     /**

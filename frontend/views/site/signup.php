@@ -33,9 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="col-sm-6"><?= $form->field($model, 'email') ?></div>
 
-                <div class="col-sm-6"><?= $form->field($model, 'password')->passwordInput() ?></div>
+                <div class="col-sm-6"><!-- ?= $form->field($model, 'password')->passwordInput() ?--></div>
 
-
+                </div>
 
                 <div class="form-group">
               <?= Html::submitButton('Enviar', ['class' => 'btn btn-success']) ?>
@@ -43,6 +43,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
             <?php ActiveForm::end(); ?>
-        </div>
+        <!-- </div> -->
     </div>
 

@@ -28,8 +28,7 @@ class SiteController extends Controller
 {
    
     public function actionUser()
-    {
-       // $this->layout = "main";
+    {       
         return $this->render("index");
     }
 
@@ -128,7 +127,7 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
-        $this->layout='login';
+        
           if (!\Yii::$app->user->isGuest) {
            
                if (User::isUserAdmin(Yii::$app->user->identity->id))
@@ -140,9 +139,8 @@ class SiteController extends Controller
                 
                }
                else
-               {
-                 //return $this->goHome();
-                  return $this->redirect(["site/index"]);
+               {                 
+                    return $this->render('index');
                }
             }
          
@@ -156,9 +154,10 @@ class SiteController extends Controller
                     return $this->redirect(["../../backend/web/site/index"]);            
                     }
                    else
-                   {
-                   
-                    return $this->redirect(["site/index"]);
+                   {                       
+                        return $this->render('index', [
+                        'model' => $model,
+                    ]);
                    }
                    
                 } else {
@@ -229,16 +228,16 @@ class SiteController extends Controller
                 if ($user = $model->signup()) {
                     if (Yii::$app->getUser()->login($user)) {
                         if ($model->sendEmail($model->email)) {
-                            if ($model->confirm(Yii::$app->user->getId())) {
-                         Yii::$app->session->setFlash('success', 'Debe confirmar el registro en la cuenta de correo.');
+                           // if ($model->confirm(Yii::$app->user->getId())) {
+                         Yii::$app->session->setFlash('success', 'Registro Exitoso. La contraseña de ingreso ha sido enviada a su correo.');
                         return $this->redirect(["site/login"]);
                         } else {
-                            Yii::$app->session->setFlash('error', 'There was an error sending your message.');
+                            Yii::$app->session->setFlash('error', 'Ha ocurrido un error en el envío del mensaje.');
                                 return $this->render('signup', [
                                     'model' => $model,
                                 ]);
                             }
-                        }
+                        //}
                     }
                 }
             }
@@ -258,11 +257,11 @@ class SiteController extends Controller
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+                Yii::$app->session->setFlash('success', 'Revise su correo para obtener información.');
 
                 return $this->goHome();
             } else {
-                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
+                Yii::$app->session->setFlash('error', 'Sorry, no es posible recuperar la contraseña.');
             }
         }
 
@@ -287,7 +286,7 @@ class SiteController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', 'New password saved.');
+            Yii::$app->session->setFlash('success', 'Nueva contraseña guardada.');
 
             return $this->goHome();
         }
@@ -365,23 +364,5 @@ class SiteController extends Controller
         }
     }
 
-
-    public function actionConfirm()
-    {
-        $model = new User;
-        if (Yii::$app->request->get())
-        {       
-            if ($model->confirm(Yii::$app->user->identity->id)) {
-
-                return $this->render('login', [                
-                'model' => $model,]);
-            } else {
-            return $this->render('signup', [
-                'model' => $model,
-            ]);
-        }
-
-        }
-     }
 
 }

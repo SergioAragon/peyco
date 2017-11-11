@@ -18,7 +18,7 @@ use backend\models\Producto;
     <?= $form->field($model, 'id_cotizacion')->textInput() ?>
 
     <?= $form->field($model, 'cliente_id')->DropDownList(
-                                  ArrayHelper::map( Clientes::find()->all(), 'id_clientes', 'numero_documento' ),
+                                  ArrayHelper::map( Clientes::find()->all(), 'id', 'nombres' ),
                                   [
                                             'prompt'=>'seleccione'
 
@@ -34,10 +34,10 @@ use backend\models\Producto;
                                   ]
                                   );  ?>
 
-    <?= $form->field($model, 'fecha')->textInput() ?>
+    <!--?= $form->field($model, 'fecha')->textInput() ?-->
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Enviar' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

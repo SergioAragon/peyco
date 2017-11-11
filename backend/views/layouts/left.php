@@ -31,41 +31,74 @@
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
                     //['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                    //['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     //['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Frontend', 'url' => ['../../frontend/web/site/index']],
-                    ['label' => 'Productos', 'url' => ['producto/index']],
-                    ['label' => 'Color', 'url' => ['color/index']],
-                    ['label' => 'Materiales', 'url' => ['materiales/index']],
+                    ['label' => 'Registro Admin', 'url' => ['clientes/create']],
+                    //['label' => 'Productos', 'url' => ['producto/index']],
+                    // ['label' => 'Color', 'url' => ['color/index']],
+                    // ['label' => 'Materiales', 'url' => ['materiales/index']],
                     ['label' => 'Clientes', 'url' => ['clientes/index']],
                     ['label' => 'Pedidos', 'url' => ['pedido/index']],
                     ['label' => 'Cotización', 'url' => ['cotizacion/index']],
+                    
                     [
-                        'label' => 'Same tools',
+                        'label' => 'Tablas Principales',
                         'icon' => 'share',
                         'url' => '#',
                         'items' => [
                             ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
-                            ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
+                            ['label' => 'Productos', 'url' => ['producto/index']],                            
+                            ['label' => 'Clientes', 'url' => ['clientes/index']],
+                            ['label' => 'Pedidos', 'url' => ['pedido/index']],
+                            ['label' => 'Cotización', 'url' => ['cotizacion/index']],
                         ],
                     ],
+
+                    [
+                        'label' => 'Tablas Maestras',
+                        'icon' => 'share',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
+                            //['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
+                            ['label' => 'Color', 'url' => ['color/index']],
+                            ['label' => 'Materiales', 'url' => ['materiales/index']],
+                            ['label' => 'Fase', 'url' => ['fase/index']],
+                            ['label' => 'Estado', 'url' => ['estado/index']],
+                            ['label' => 'Departamento', 'url' => ['departamento/index']],
+                            ['label' => 'Municipio', 'url' => ['municipio/index']],
+                            ['label' => 'Clasificacion', 'url' => ['clasificacion/index']],
+                            
+                        ],
+                    ],
+
+                    // [
+                    //     'label' => 'Same tools',
+                    //     'icon' => 'share',
+                    //     'url' => '#',
+                    //     'items' => [
+                    //         ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
+                    //         ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
+                    //         [
+                    //             'label' => 'Level One',
+                    //             'icon' => 'circle-o',
+                    //             'url' => '#',
+                    //             'items' => [
+                    //                 ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
+                    //                 [
+                    //                     'label' => 'Level Two',
+                    //                     'icon' => 'circle-o',
+                    //                     'url' => '#',
+                    //                     'items' => [
+                    //                         ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
+                    //                         ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
+                    //                     ],
+                    //                 ],
+                    //             ],
+                    //         ],
+                    //     ],
+                    // ],
                 ],
             ]
         ) ?>

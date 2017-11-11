@@ -60,6 +60,27 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'materiales_id',
 
             ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',               
+                'template' => '{desactiv}',
+                'buttons' => [
+                    'desactiv' => function ($url, $model) {
+                        if ($model->estado_id == 1){
+                            return Html::a('<span class="glyphicon glyphicon-thumbs-down"></span>', $url,
+                                [
+                                    'title' => Yii::t('app', 'Desactivar'),
+                                    'data-confirm' => Yii::t('yii', 'Esta seguro que quiere Desactivar este Producto?'),
+                                ]);
+                        } else {
+                            return Html::a('<span class="glyphicon glyphicon-thumbs-up"></span>', $url,
+                                [
+                                    'title' => Yii::t('app', 'Activar'),
+                                    'data-confirm' => Yii::t('yii', 'Esta seguro que quiere Activar este Producto?'),
+                                ]);
+                        }
+                    }
+                ]
+            ],
         ],
     ]); ?>
 </div>

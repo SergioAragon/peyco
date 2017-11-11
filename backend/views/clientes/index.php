@@ -32,15 +32,36 @@ $this->params['breadcrumbs'][] = $this->title;
             'username',
             'email:email',
              //'password',
-             'authKey',
-            // 'access_token',
+             //'authKey',
+            // 'password_reset_token',
              'activate',
-             'status',
+             //'status',
              'created_at',
-             'updated_at',
+             //'updated_at',
              //'role',
 
             ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',               
+                'template' => '{desactiv}',
+                'buttons' => [
+                    'desactiv' => function ($url, $model) {
+                        if ($model->activate == 1){
+                            return Html::a('<span class="glyphicon glyphicon-thumbs-down"></span>', $url,
+                                [
+                                    'title' => Yii::t('app', 'Desactivar'),
+                                    'data-confirm' => Yii::t('yii', 'Esta seguro que quiere Desactivar este Usuario?'),
+                                ]);
+                        } else {
+                            return Html::a('<span class="glyphicon glyphicon-thumbs-up"></span>', $url,
+                                [
+                                    'title' => Yii::t('app', 'Activar'),
+                                    'data-confirm' => Yii::t('yii', 'Esta seguro que quiere Activar este Usuario?'),
+                                ]);
+                        }
+                    }
+                ]
+            ],
         ],
     ]); ?>
 </div>

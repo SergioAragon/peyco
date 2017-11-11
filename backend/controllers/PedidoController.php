@@ -106,6 +106,22 @@ class PedidoController extends Controller
         return $this->redirect(['index']);
     }
 
+
+    public function actionDesactiv($id)
+    {
+        $model = $this->findModel($id);
+        
+        if ($model->estado_id == 1) {
+            $model->estado_id = 2;
+            $model->save();           
+            return $this->redirect(['index']);
+        } else {            
+             $model->estado_id = 1;
+            $model->save();
+            return $this->redirect(['index']);
+        }
+    }
+
     /**
      * Finds the Pedido model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

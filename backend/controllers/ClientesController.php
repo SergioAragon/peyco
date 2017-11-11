@@ -121,4 +121,20 @@ class ClientesController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
+    public function actionDesactiv($id)
+    {
+        $model = $this->findModel($id);
+        
+        if ($model->activate == 1) {
+            $model->activate = 0;
+            $model->save();           
+            return $this->redirect(['index']);
+        } else {            
+             $model->activate = 1;
+            $model->save();
+            return $this->redirect(['index']);
+        }
+    }
 }

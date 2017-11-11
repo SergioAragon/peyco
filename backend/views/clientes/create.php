@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Clientes */
 
-$this->title = 'Create Clientes';
-$this->params['breadcrumbs'][] = ['label' => 'Clientes', 'url' => ['index']];
+$this->title = 'Formulario de Registro';
+$this->params['breadcrumbs'][] = ['label' => 'Usuario', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="clientes-create">

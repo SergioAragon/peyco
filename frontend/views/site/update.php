@@ -6,12 +6,12 @@ use yii\bootstrap\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Clientes */
 
-$this->title = 'Actualizar Datos Cliente: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Clientes', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->title = 'Actualizar Datos: ' . $model->nombres .' '. $model->apellidos;
+$this->params['breadcrumbs'][] = ['label' => 'Cliente', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->nombres, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Actualizar';
 ?>
-<div class="clientes-update">
+<div class="site-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

@@ -9,6 +9,9 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\models\Clientes;
+use yii\db\Expression;
+use yii\behaviors\TimestampBehavior;
+use yii\web\Models;
 
 /**
  * CotizacionController implements the CRUD actions for Cotizacion model.
@@ -18,17 +21,30 @@ class CotizacionController extends Controller
     /**
      * @inheritdoc
      */
+    // public function behaviors()
+    // {
+    //     return [
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'delete' => ['POST'],
+    //             ],
+    //         ],
+    //     ];
+    // }
+
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
+            [
+                  'class' => TimestampBehavior::className(),
+                  'createdAtAttribute' => 'fecha',
+                  //'updatedAtAttribute' => 'updated_at',
+                  'value' => new Expression('NOW()'),
+              ],
         ];
     }
+
 
     /**
      * Lists all Cotizacion models.

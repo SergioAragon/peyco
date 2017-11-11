@@ -261,6 +261,23 @@ class ProductoController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
+    public function actionDesactiv($id)
+    {
+        $model = $this->findModel($id);
+        
+        if ($model->estado_id == 1) {
+            $model->estado_id = 2;
+            $model->save();           
+            return $this->redirect(['index']);
+        } else {            
+             $model->estado_id = 1;
+            $model->save();
+            return $this->redirect(['index']);
+        }
+    }
+    
 }
 
 
