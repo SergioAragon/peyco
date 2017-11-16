@@ -18,7 +18,7 @@ class DetalleMaterialPedidoSearch extends DetalleMaterialPedido
     public function rules()
     {
         return [
-            [['id_dmp', 'material_id', 'cantidad', 'pedido_id'], 'integer'],
+            [['id_dmp', 'material_id', 'pedido_id'], 'integer'],
             [['costo'], 'safe'],
         ];
     }
@@ -60,8 +60,7 @@ class DetalleMaterialPedidoSearch extends DetalleMaterialPedido
         // grid filtering conditions
         $query->andFilterWhere([
             'id_dmp' => $this->id_dmp,
-            'material_id' => $this->material_id,
-            'cantidad' => $this->cantidad,
+            'material_id' => $this->material_id,            
             'pedido_id' => $this->pedido_id,
         ]);
 

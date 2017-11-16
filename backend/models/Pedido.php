@@ -4,11 +4,12 @@ namespace backend\models;
 
 use Yii;
 
-// use yii\base\NotSupportedException;
+ use yii\base\NotSupportedException;
  use yii\behaviors\TimestampBehavior;
-// use yii\db\ActiveRecord;
+ use yii\db\ActiveRecord;
  use yii\web\IdentityInterface;
 use yii\db\Expression;
+use common\models\User;
 //use backend\models\Clientes;
 
 /**
@@ -24,7 +25,7 @@ use yii\db\Expression;
  * @property Municipio $municipio
  * @property Estado $estado
  */
-class Pedido extends \yii\db\ActiveRecord
+class Pedido extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -41,7 +42,7 @@ class Pedido extends \yii\db\ActiveRecord
             [
                   'class' => TimestampBehavior::className(),
                   'createdAtAttribute' => 'fecha_pedido',
-                  'updatedAtAttribute' => 'updated_at',
+                  // 'updatedAtAttribute' => 'updated_at',
                   'value' => new Expression('NOW()'),
               ],
         ];
@@ -53,14 +54,15 @@ class Pedido extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            //[['id_pedido', 'fecha_pedido', 'cliente_id', 'direccion', 'medidas'], 'required'],
-            //[['cliente_id'], 'required'],
+            // [['id_pedido', 'cliente_id', 'direccion', 'medidas'], 'required'],
+            [['direccion', 'medidas'], 'required'],
+            
             [['id_pedido', 'cliente_id', 'estado_id', 'municipio_id'], 'integer'],
             [['fecha_pedido'], 'safe'],
             [['direccion', 'medidas'], 'string', 'max' => 20],
             [['municipio_id', 'default' => 1], 'exist', 'skipOnError' => true, 'targetClass' => Municipio::className(), 'targetAttribute' => ['municipio_id' => 'id_municipio']],
             [['estado_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estado::className(), 'targetAttribute' => ['estado_id' => 'id_estado']],
-            [['cliente_id'], 'exist', 'skipOnError' => true, 'targetClass' => Clientes::className(), 'targetAttribute' => ['cliente_id' => 'id']],
+            [['cliente_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['cliente_id' => 'id']],
 
         ];
     }
@@ -103,7 +105,7 @@ class Pedido extends \yii\db\ActiveRecord
      */
     public function getClientes()
     {
-        return $this->hasOne(Clientes::className(), ['id' => 'cliente_id']);
+        return $this->hasOne(User::className(), ['id' => 'cliente_id']);
     }
 
 }

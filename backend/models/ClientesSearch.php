@@ -19,7 +19,7 @@ class ClientesSearch extends Clientes
     {
         return [
             [['id', 'telefono', 'activate', 'role'], 'integer'],
-            [['nombres', 'apellidos', 'username', 'email', 'password', 'authKey', 'password_reset_token', 'created_at', 'updated_at'], 'safe'],
+            [['nombres', 'apellidos', 'username', 'email', 'password', 'password_reset_token', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 

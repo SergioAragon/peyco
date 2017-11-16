@@ -16,20 +16,20 @@ $this->title = 'ADMIN';
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Contenido</h2>
+                <h2>Subir Archivos</h2>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
                     fugiat nulla pariatur.</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                <p><a class="btn btn-default" href="/peyco/backend/web/site/upload">Subir Archivos &raquo;</a></p>
             </div>
             <div class="col-lg-4">
-                <h2>Contenido</h2>
+                <h2>Ayuda</h2>
 
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                     fugiat nulla pariatur.</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+                <p><a class="btn btn-default" href="/peyco/backend/web/archivos/ayudausuarios">Ayuda &raquo;</a></p>
             </div>
             
         </div>

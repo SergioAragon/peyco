@@ -3,8 +3,10 @@
 namespace backend\models;
 
 use Yii;
-// use yii\db\Expression;
-// use yii\behaviors\TimestampBehavior;
+ use yii\db\Expression;
+ use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
+//use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "cotizacion".
@@ -18,7 +20,7 @@ use Yii;
  * @property Producto $producto
  * @property DetalleCotizacionProductos[] $detalleCotizacionProductos
  */
-class Cotizacion extends \yii\db\ActiveRecord
+class Cotizacion extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -35,10 +37,10 @@ class Cotizacion extends \yii\db\ActiveRecord
     {
         return [
             //[['id_cotizacion', 'cliente_id', 'producto_id', 'fecha'], 'required'],
-            [['cliente_id', 'producto_id'], 'required'],
-            [['id_cotizacion', 'cliente_id', 'producto_id'], 'integer'],
+            [['cliente_id', 'fecha'], 'required'],
+            [['cliente_id', 'producto_id'], 'integer'],
             [['fecha'], 'safe'],
-            [['cliente_id'], 'exist', 'skipOnError' => true, 'targetClass' => Clientes::className(), 'targetAttribute' => ['cliente_id' => 'id_clientes']],
+            [['cliente_id'], 'exist', 'skipOnError' => true, 'targetClass' => Clientes::className(), 'targetAttribute' => ['cliente_id' => 'id']],
             [['producto_id'], 'exist', 'skipOnError' => true, 'targetClass' => Producto::className(), 'targetAttribute' => ['producto_id' => 'id_producto']],
         ];
     }
@@ -57,7 +59,7 @@ class Cotizacion extends \yii\db\ActiveRecord
     }
 
 
-    /*public function behaviors()
+    public function behaviors()
     {
         return [
             [
@@ -67,7 +69,7 @@ class Cotizacion extends \yii\db\ActiveRecord
                   'value' => new Expression('NOW()'),
               ],
         ];
-    }*/
+    }
 
     /**
      * @return \yii\db\ActiveQuery
@@ -87,7 +89,7 @@ class Cotizacion extends \yii\db\ActiveRecord
 
     /**
      * @return \yii\db\ActiveQuery
-     */
+         */
     public function getDetalleCotizacionProductos()
     {
         return $this->hasMany(DetalleCotizacionProductos::className(), ['cotizacion_id' => 'id_cotizacion']);

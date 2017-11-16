@@ -1,7 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+// use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Clientes */
@@ -26,8 +27,12 @@ use yii\widgets\ActiveForm;
 
     <div class="col-sm-6"><?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?></div>
 
-    <div class="col-sm-6"><!--?= $form->field($model, 'password')->passwordInput() ?--></div>
+    <div class="col-sm-6"><?= $form->field($model, 'password')->passwordInput() ?></div>
 
+    <div class="col-sm-2"><?= $form->field($model, 'role')->DropDownList(['1' => 1, '2' => 2],
+                                  [
+                                            'default'=> '1'
+                                  ]);  ?></div>
     
    <!--  //$form->field($model, 'auth_key')->textInput(['maxlength' => true]) 
 
@@ -43,7 +48,6 @@ use yii\widgets\ActiveForm;
 
     //$form->field($model, 'role')->textInput() 
  -->
-  <div class="col-sm-6"><?=$form->field($model, 'role')->textInput()?></div>
     </div>
 
     <div class="form-group">

@@ -32,8 +32,8 @@ class DetalleMaterialPedido extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['material_id', 'cantidad', 'costo', 'pedido_id'], 'required'],
-            [['material_id', 'cantidad', 'pedido_id'], 'integer'],
+            [['material_id', 'costo', 'pedido_id'], 'required'],
+            [['material_id', 'pedido_id'], 'integer'],
             [['costo'], 'string', 'max' => 25],
             [['material_id'], 'exist', 'skipOnError' => true, 'targetClass' => Materiales::className(), 'targetAttribute' => ['material_id' => 'id_mate']],
         ];
@@ -46,8 +46,7 @@ class DetalleMaterialPedido extends \yii\db\ActiveRecord
     {
         return [
             'id_dmp' => 'Id Dmp',
-            'material_id' => 'Material ID',
-            'cantidad' => 'Cantidad',
+            'material_id' => 'Material ID',            
             'costo' => 'Costo',
             'pedido_id' => 'Pedido ID',
         ];

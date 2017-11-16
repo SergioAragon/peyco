@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 use backend\models\Clientes;
 use backend\models\Producto;
@@ -15,7 +15,7 @@ use backend\models\Producto;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_cotizacion')->textInput() ?>
+    <!--?= $form->field($model, 'id_cotizacion')->textInput() ?-->
 
     <?= $form->field($model, 'cliente_id')->DropDownList(
                                   ArrayHelper::map( Clientes::find()->all(), 'id', 'nombres' ),
@@ -37,7 +37,7 @@ use backend\models\Producto;
     <!--?= $form->field($model, 'fecha')->textInput() ?-->
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Enviar' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

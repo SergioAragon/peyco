@@ -9,15 +9,14 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-
 $this->title = 'Pedido';
 $this->params['breadcrumbs'][] = $this->title;
-//$id = Yii::$app->user->identity->id;
+
 ?>
 
 <div class="pedido-form">
     
-    <h1><?= $id = Yii::$app->user->identity->nombres .' '. Yii::$app->user->identity->apellidos; ?></h1>
+    <h3><?= $id = Yii::$app->user->identity->nombres .' '. Yii::$app->user->identity->apellidos; ?></h3>
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'pedido-form']); ?>
@@ -36,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'medidas')->textInput(['maxlength' => true]) ?>
 
                 <div class="form-group">
-                    <?= Html::submitButton($model->isNewRecord ? 'Enviar' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                    <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
                 </div>
 
                 <?php ActiveForm::end(); ?>

@@ -8,6 +8,7 @@ use backend\models\PedidoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\models\User;
 
 /**
  * PedidoController implements the CRUD actions for Pedido model.

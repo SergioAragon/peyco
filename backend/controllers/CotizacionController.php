@@ -8,10 +8,11 @@ use backend\models\CotizacionSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\db\ActiveRecord;
 use backend\models\Clientes;
-use yii\db\Expression;
-use yii\behaviors\TimestampBehavior;
-use yii\web\Models;
+// use yii\db\Expression;
+// use yii\behaviors\TimestampBehavior;
+// use yii\web\Models;
 
 /**
  * CotizacionController implements the CRUD actions for Cotizacion model.
@@ -21,29 +22,29 @@ class CotizacionController extends Controller
     /**
      * @inheritdoc
      */
-    // public function behaviors()
-    // {
-    //     return [
-    //         'verbs' => [
-    //             'class' => VerbFilter::className(),
-    //             'actions' => [
-    //                 'delete' => ['POST'],
-    //             ],
-    //         ],
-    //     ];
-    // }
-
     public function behaviors()
     {
         return [
-            [
-                  'class' => TimestampBehavior::className(),
-                  'createdAtAttribute' => 'fecha',
-                  //'updatedAtAttribute' => 'updated_at',
-                  'value' => new Expression('NOW()'),
-              ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
         ];
     }
+
+    // public function behaviors()
+    // {
+    //     return [
+    //         [
+    //               'class' => TimestampBehavior::className(),
+    //               'createdAtAttribute' => 'fecha',
+    //               //'updatedAtAttribute' => 'updated_at',
+    //               'value' => new Expression('NOW()'),
+    //           ],
+    //     ];
+    // }
 
 
     /**
@@ -86,73 +87,67 @@ class CotizacionController extends Controller
 
             $db = Yii::$app->db;
             $db->createCommand()->insert('cotizacion', [
-                                           'id_cotizacion' =>$model->id_cotizacion,
+                                            'id_cotizacion' => $model->id_cotizacion,
             'cliente_id' => $model->cliente_id,
-            'producto_id' => $model->producto_id,
-            'fecha' => $model->fecha,
-                                    ])->execute();
+            // 'producto_id' => $model->producto_id,
+            'fecha' => $model->value,
+                                    ])
+                                     ->execute();
 
 
 
- $producto = Yii::$app->request->post();
-                         $sum=0;
-         foreach ($producto["Cotizacion"]["producto_id"] as $key => $value) {
-             //echo $value;
+                 $producto = Yii::$app->request->post();
+                                         $sum=0;
+                         foreach ($producto["Cotizacion"]["producto_id"] as $key => $value) {
+                             // echo $value;
 
 
-          if ($value!=null) {
-            $query = (new \yii\db\Query())
-    ->select('costo')
-    ->from('producto')->where("id_producto =  $value");
-// Crea un commando
-$command = $query->createCommand();
-// Ejecuta el commando
-$rows = $command->queryAll();
-              // print_r($rows);
+                          if ($value!==null) {
+                            $query = (new \yii\db\Query())
+                                ->select('costo')
+                                ->from('producto')->where("id_producto = $value");
+                            // Crea un commando
+                            $command = $query->createCommand();
+                            // Ejecuta el commando
+                            $rows = $command->queryAll();
+                                          // print_r($rows);
 
-              foreach ($rows as $col=>$value) {
+                                  foreach ($rows as $col=>$value) {
 
-                  // print_r($value);
-                   //echo implode($value);
-                   //implode(glue, pieces)
-                
-                $sum+=implode($value);
+                                      // print_r($value);
+                                       //echo implode($value);
+                                       //implode(glue, pieces)
+                                    
+                                    $sum+=implode($value);
 
-               }
+                                               }
+                                             
+                                          }
 
-                //echo $sum;
-            
-
-          }
-
-          }
-
-               foreach ($producto["Cotizacion"]["producto_id"] as $key => $value) {
-             //echo $value;
-          // }
-          // exit;
-            $db->createCommand()->insert('detalle_cotizacion_productos', [
-                                          
-                                        
-                                        'producto_id' =>$value ,
-                                        'cotizacion_id'=>$model->id_cotizacion,
-                                        'total_cotizacion'=>$sum,                                 
-                                    ])->execute();
-
-         }
-
-
-
-
-
-
-            return $this->redirect(['view', 'id' => $model->id_cotizacion]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
+                                      }
+                                
+                                   foreach ($producto["Cotizacion"]["producto_id"] as $key => $value) {
+                                 
+                                    $db->createCommand()->insert('detalle-cotizacion-productos', [
+                                            
+                                        'producto_id' => $value,                                            
+                                          'cotizacion_id' => $model->id_cotizacion,
+                                            'total_cotizacion' => $sum,                                 
+                                        ])->execute();
+                                    
+                                 }
+                               
+                            //return $this->redirect(['view', 'id' => $model->id_cotizacion]);
+                                 return $this->redirect(['index']);
+                                
+                      } else {
+    
+                        return $this->render('create', [
+                            'model' => $model,
+                            ]);
+              }
     }
+
 
     /**
      * Updates an existing Cotizacion model.

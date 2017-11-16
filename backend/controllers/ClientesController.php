@@ -8,6 +8,7 @@ use backend\models\ClientesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\models\User;
 
 /**
  * ClientesController implements the CRUD actions for Clientes model.
@@ -66,6 +67,7 @@ class ClientesController extends Controller
         $model = new Clientes();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            // $model->generateAuthKey();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [

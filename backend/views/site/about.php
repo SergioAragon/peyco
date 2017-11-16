@@ -15,4 +15,10 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <code><?= __FILE__ ?></code>
+
+     <?= $this->render(
+            '/../web/archivos/ayudausuarios.pdf'
+            // ['content' => $content, 'directoryAsset' => $directoryAsset]
+        )?>
+
 </div>

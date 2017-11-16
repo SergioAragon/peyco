@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Fase */
 
-$this->title = 'Create Fase';
+$this->title = 'Registrar Fase';
 $this->params['breadcrumbs'][] = ['label' => 'Fases', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

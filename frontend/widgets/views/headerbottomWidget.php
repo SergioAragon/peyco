@@ -23,7 +23,7 @@ use yii\helpers\Html;
                                     <ul role="menu" class="sub-menu">
                                         
                                         <li><?=Html::a('Products', ['/site/shop'] ) ?> </li>
-                                        <li><a href="product-details.php">Product Details</a></li> 
+                                        <li><a href="product-details.php">Productos Detalles</a></li> 
                                         
                                         <li><?=Html::a('Cart', ['/site/cart'], ['class'=>"fa fa-shopping-cart"] ) ?> </li>
                                         <li><?=Html::a('Login', ['/site/login'] ) ?> </li>
@@ -31,15 +31,16 @@ use yii\helpers\Html;
                                     </ul>
                                 </li> 
                                 
-                                <li><?=Html::a('Cart', ['/site/cart'], ['class'=>"fa fa-shopping-cart"] ) ?> </li>
-                                <li><?=Html::a('Contact', ['/site/contact'] ) ?> </li>
+                                <li><?=Html::a('Compras', ['/site/cart'], ['class'=>"fa fa-shopping-cart"] ) ?> </li>
+                                <li><?=Html::a('Contacto', ['/site/contact'] ) ?> </li>
                                 
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="search_box pull-right">
-                            <input type="text" placeholder="Search"/>
+                            <!-- <input type="text" placeholder="Ayuda"/> -->
+                            <?=Html::a('Ayuda', ['/archivos/ayudausuarios'] ) ?>
                         </div>
                     </div>
                 </div>

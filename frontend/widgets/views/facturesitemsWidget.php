@@ -8,7 +8,7 @@
                                 <div class="single-products">
                                         <div class="productinfo text-center">
                                             <a href="javascript::void(0)">
-                                            <img id="img_<?=$value["id_producto"]?>" src="<?='/PEYCO/backend/web/img/'.$value['imag_adju']?>" alt="<?=$value["nombre"] ?>" />
+                                            <img id="img_<?=$value["id_producto"]?>" src="<?='/peyco/backend/web/img/'.$value['imag_adju']?>" alt="<?=$value["nombre"] ?>" />
                                             </a>
                                             <h2 id="txtPre_<?=$value["id_producto"]?>">$<?php echo number_format($value["costo"],0,"","." )?></h2>
                                             <p><a href="#" id="txtNom_<?=$value["id_producto"]?>"><?=$value["nombre"]?></a></p>

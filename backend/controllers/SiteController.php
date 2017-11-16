@@ -8,6 +8,8 @@ use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\models\User;
 //use frontend\controllers\SiteController;
+use backend\models\FormUpload;
+use yii\web\UploadedFile;
 
 /**
  * Site controller
@@ -151,6 +153,34 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->redirect(["../../frontend/web/site/index"]);
+         return $this->redirect(["../../frontend/web/site/index"]);
     }
+
+
+    public function actionUpload()
+         {
+          
+          $model = new FormUpload;
+          $msg = null;
+          
+          if ($model->load(Yii::$app->request->post()))
+          {
+           $model->file = UploadedFile::getInstances($model, 'file');
+
+           if ($model->file && $model->validate()) {
+            foreach ($model->file as $file) {
+             $file->saveAs('archivos/' . $file->baseName . '.' . $file->extension);
+             $msg = "<p><strong class='label label-info'>Enhorabuena, subida realizada con éxito</strong></p>";
+            }
+           }
+          }
+          return $this->render("upload", ["model" => $model, "msg" => $msg]);
+         }
+
+
+    public function actionAbout()
+    {
+        return $this->render('about');
+    }
+
 }

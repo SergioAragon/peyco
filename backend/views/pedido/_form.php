@@ -7,6 +7,7 @@ use yii\helpers\ArrayHelper;
 use backend\models\Estado;
 use backend\models\Municipio;
 use backend\models\Clientes;
+use common\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Pedido */
@@ -17,13 +18,16 @@ use backend\models\Clientes;
 
   <h1><!-- $id = Yii::$app->user->identity->nombres; --></h1>
 
+  <h3><!--?= $id = Yii::$app->user->identity->nombres .' '. Yii::$app->user->identity->apellidos; ?--></h3>
+
     <?php $form = ActiveForm::begin(); ?>
 
     <!-- $form->field($model, 'id_pedido')->textInput() -->
 
     <!-- $form->field($model, 'fecha_pedido')->textInput() -->
 
-    <?= $form->field($model, 'cliente_id')->Input([Clientes::find()->one(), 'id', 'nombres']);  ?>
+    <!--?= $form->field($model, 'cliente_id')->Input([User::find()->one(), 'id', 'nombres']);  ?-->
+
 
     <?= $form->field($model, 'estado_id')->DropDownList(
                                   ArrayHelper::map( Estado::find()->all(), 'id_estado', 'descripcion' ),

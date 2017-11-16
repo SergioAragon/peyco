@@ -39,8 +39,8 @@
                     // ['label' => 'Color', 'url' => ['color/index']],
                     // ['label' => 'Materiales', 'url' => ['materiales/index']],
                     ['label' => 'Clientes', 'url' => ['clientes/index']],
-                    ['label' => 'Pedidos', 'url' => ['pedido/index']],
-                    ['label' => 'Cotización', 'url' => ['cotizacion/index']],
+                    // ['label' => 'Pedidos', 'url' => ['pedido/index']],
+                    // ['label' => 'Cotización', 'url' => ['cotizacion/index']],
                     
                     [
                         'label' => 'Tablas Principales',
@@ -70,6 +70,22 @@
                             ['label' => 'Municipio', 'url' => ['municipio/index']],
                             ['label' => 'Clasificacion', 'url' => ['clasificacion/index']],
                             
+                        ],
+                    ],
+
+                    [
+                        'label' => 'Tablas Detalle',
+                        'icon' => 'share',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
+                            //['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
+                            ['label' => 'Cotización-Productos', 'url' => ['detalle-cotizacion-productos/index']],
+                            ['label' => 'Material-Pedido', 'url' => ['detalle-material-pedido/index']],
+                            ['label' => 'Detalle Fase', 'url' => ['detalle-fase/index']],
+                            //['label' => 'Detalle Stand', 'url' => ['detalle-stand/index']],
+                            ['label' => 'Producto Color', 'url' => ['detalle-producto-color/index']],
+                            ['label' => 'Producto Material', 'url' => ['detalle-producto-material/index']],
                         ],
                     ],
 
