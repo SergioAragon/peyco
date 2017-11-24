@@ -33,7 +33,7 @@ class DetalleProductoColor extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['producto_id', 'color_id', 'cantidad', 'estado_id'], 'required'],
+            [['producto_id', 'color_id'], 'required'],
             [['producto_id', 'color_id', 'cantidad', 'estado_id'], 'integer'],
             [['estado_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estado::className(), 'targetAttribute' => ['estado_id' => 'id_estado']],
             [['color_id'], 'exist', 'skipOnError' => true, 'targetClass' => Color::className(), 'targetAttribute' => ['color_id' => 'id_color']],

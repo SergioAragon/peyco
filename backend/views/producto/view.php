@@ -40,6 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'color_id',
             'cantidad_color',
             'materiales_id',
+            
         ],
     ]) ?>
 

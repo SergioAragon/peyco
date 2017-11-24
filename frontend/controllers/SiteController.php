@@ -231,8 +231,10 @@ class SiteController extends Controller
                     if (Yii::$app->getUser()->login($user)) {
                         if ($model->sendEmail($model->email)) {
                            // if ($model->confirm(Yii::$app->user->getId())) {
+                         Yii::$app->user->logout();
                          Yii::$app->session->setFlash('success', 'Registro Exitoso. La contraseña de ingreso ha sido enviada a su correo.');
-                        return $this->redirect(["site/login"]);
+                            
+                            return $this->render('index');
                         } else {
                             Yii::$app->session->setFlash('error', 'Ha ocurrido un error en el envío del mensaje.');
                                 return $this->render('signup', [

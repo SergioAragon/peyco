@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ColorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Colors';
+$this->title = 'Colores';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="color-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Color', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Registrar Color', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

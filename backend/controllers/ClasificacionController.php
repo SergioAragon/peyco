@@ -66,7 +66,8 @@ class ClasificacionController extends Controller
         $model = new Clasificacion();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_clasifi]);
+            // return $this->redirect(['view', 'id' => $model->id_clasifi]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,

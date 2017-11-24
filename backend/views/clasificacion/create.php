@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Clasificacion */
 
-$this->title = 'Create Clasificacion';
-$this->params['breadcrumbs'][] = ['label' => 'Clasificacions', 'url' => ['index']];
+$this->title = 'Registrar Clasificación';
+$this->params['breadcrumbs'][] = ['label' => 'Clasificación', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="clasificacion-create">

@@ -66,7 +66,8 @@ class MaterialesController extends Controller
         $model = new Materiales();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_mate]);
+            // return $this->redirect(['view', 'id' => $model->id_mate]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -121,4 +122,20 @@ class MaterialesController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionDesactiv($id)
+    {
+        $model = $this->findModel($id);
+        
+        if ($model->estado == '1') {
+            $model->estado = '2';
+            $model->save();           
+            return $this->redirect(['index']);
+        } else {            
+             $model->estado = '1';
+            $model->save();
+            return $this->redirect(['index']);
+        }
+    }
+
 }

@@ -32,7 +32,7 @@ class DetalleProductoMaterial extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['materiales_id', 'producto_id_producto', 'estado_id'], 'required'],
+            [['materiales_id', 'producto_id_producto'], 'required'],
             [['materiales_id', 'producto_id_producto', 'estado_id'], 'integer'],
             [['estado_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estado::className(), 'targetAttribute' => ['estado_id' => 'id_estado']],
             [['producto_id_producto'], 'exist', 'skipOnError' => true, 'targetClass' => Producto::className(), 'targetAttribute' => ['producto_id_producto' => 'id_producto']],

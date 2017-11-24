@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 
 use backend\models\Clasificacion;
@@ -23,8 +23,6 @@ use backend\models\Estado;
     <div class="col-sm-4"><?= $form->field($model, 'id_producto')->textInput(['maxlength' => true]) ?></div>
 
     <div class="col-sm-4"><?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?></div>
-
-    
 
     <div class="col-sm-4"><?= $form->field($model, 'cod_clasifi')->DropDownList(
                                   ArrayHelper::map( Clasificacion::find()->all(), 'id_clasifi', 'descripcion' ),
@@ -80,7 +78,7 @@ use backend\models\Estado;
     </div>
     
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Registrar' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

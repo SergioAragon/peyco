@@ -66,30 +66,14 @@ class ProductoController extends Controller
     public function actionCreate()
     {
 
-        /* $producto = new Producto();
-          $producto = Yii::$app->request->post();
-        
-         foreach ($producto["Producto"]["color_id"] as $key => $value) {
-             echo $value;
-
-         }
-         
-         exit;*/
-
-            
-
-
         $model = new Producto();       
 
-        if ($model->load(Yii::$app->request->post()) ) {
-
+        if ($model->load(Yii::$app->request->post())) {
 
             $model->imgfile = UploadedFile::getInstance($model, 'imgfile');            
             $model->imag_adju = ($model->imgfile->baseName . '.' . $model->imgfile->extension);
             $model->imgfile->saveAs('../web/img/' . $model->imag_adju);
-
-
-
+            
             $db = Yii::$app->db;
             $db->createCommand()->insert('producto', [
             'id_producto' => $model->id_producto,
@@ -104,31 +88,23 @@ class ProductoController extends Controller
             'estado_id' => $model->estado_id,
             //'color_id' =>$model->color_id,
             'cantidad_color' => $model->cantidad_color,
-            'materiales_id' => $model->materiales_id,
+            'materiales_id' => $model->materiales_id,            
                                     ])->execute();
-
 
              $producto = Yii::$app->request->post();
         
          foreach ($producto["Producto"]["color_id"] as $key => $value) {
              echo $value;
-         // }
-         // exit;
-
-              
 
             $db->createCommand()->insert('detalle_producto_color', [
                                           //'id_dpc' => $model->id_producto+1,
-                                        'producto_id' =>$model->id_producto ,
+                                        'producto_id' =>$model->id_producto,
                                         'color_id'=>$value,
                                         'cantidad'=>$model->cantidad_color,
                                         'estado_id'=>$model->estado_id,
                                     ])->execute();
-            
 
-            //$model->save();
-
-         }
+                     }
 
           $db->createCommand()->insert('detalle_producto_material', [
                                           //'id_dpm' => $model->id_producto+1,
@@ -136,51 +112,10 @@ class ProductoController extends Controller
                                         'Producto_id_producto'=>$model->id_producto,
                                         'estado_id'=>$model->estado_id,
                                     ])->execute();
-
-            
-            //if($model->validate())
-            //{
-                  //$db = Yii::$app->db;
-
-            //       $db->createCommand()->update('producto', [
-            //                                'id_producto' =>$model->id_producto,
-            // 'nombre' => $model->nombre,
-            // 'cod_tipo' => $model->cod_tipo,
-            // 'cod_clasifi' => $model->cod_clasifi,
-            // 'dimension_producto' => $model->dimension_producto,
-            // 'cantidad' => $model->cantidad,
-            // 'imag_adju' => $model->imag_adju,
-            // 'unidades' => $model->unidades,
-            // 'costo' => $model->costo,
-            // 'estado_id' => $model->estado_id,
-            // 'color_id' => $value,
-            // 'cantidad_color' => $model->cantidad_color,
-            // 'materiales_id' => $model->materiales_id,
-            //                         ])->execute();
-
-
-
-
-
-
-            // $db->createCommand()->insert('detalle_producto_color', [
-            //                               'id_dpc' => $model->id_producto,
-            //                             'producto_id' =>$model->id_producto ,
-            //                             'color_id'=>$value,
-            //                             'cantidad'=>$model->cantidad,
-            //                             'estado_id'=>$model->estado_id,
-            //                         ])->execute();
-            //  $db->createCommand()->insert('detalle_producto_material', [
-            //                               'id_dpm' => $model->id_producto,
-            //                             'materiales_id'=>$model->materiales_id,
-            //                             'Producto_id_producto'=>$model->id_producto,
-            //                             'estado_id'=>$model->estado_id,
-            //                         ])->execute();
-            //}
-
+                    // }
            
             return $this->redirect(['index']);
-            //return $this->redirect(['view', 'id' => $model->id_producto]);
+            // return $this->redirect(['view', 'id' => $model->id_producto]);
             
         } else {
             return $this->render('create', [
@@ -222,9 +157,6 @@ class ProductoController extends Controller
 
             }
 
-
-
-
             return $this->redirect(['view', 'id' => $model->id_producto]);
         } else {
             return $this->render('update', [
@@ -246,6 +178,8 @@ class ProductoController extends Controller
         return $this->redirect(['index']);
     }
 
+
+
     /**
      * Finds the Producto model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -259,22 +193,6 @@ class ProductoController extends Controller
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
-        }
-    }
-
-
-    public function actionDesactiv($id)
-    {
-        $model = $this->findModel($id);
-        
-        if ($model->estado_id == 1) {
-            $model->estado_id = 2;
-            $model->save();           
-            return $this->redirect(['index']);
-        } else {            
-             $model->estado_id = 1;
-            $model->save();
-            return $this->redirect(['index']);
         }
     }
     

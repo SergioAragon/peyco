@@ -21,6 +21,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'rowOptions' => function($model){
+
+            if ($model->activate=='0') {
+                return['class'=>'danger'];
+
+            }elseif ($model->activate=='1') {
+                return['class'=>'success'];
+            }
+        },
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -40,10 +49,10 @@ $this->params['breadcrumbs'][] = $this->title;
              //'updated_at',
              //'role',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            // ['class' => 'yii\grid\ActionColumn', 'template' => '{view},{update}'],
             [
                 'class' => 'yii\grid\ActionColumn',               
-                'template' => '{desactiv}',
+                'template' => '{view} {update} {desactiv}',
                 'buttons' => [
                     'desactiv' => function ($url, $model) {
                         if ($model->activate == 1){

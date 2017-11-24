@@ -7,6 +7,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use backend\assets\AppAsset;
 use backend\controllers;
+use yii\db\ActiveRecord;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -246,11 +247,12 @@ use backend\controllers;
                             $menuItems = [
                                 ['label' => 'Inicio', 'url' => ['/site/index']],
                             ];
-                            
+                            // $menuItems[] = ['label' => 'Perfil', 'url' => ['/site/view', 'id' => Yii::$app->user->identity->id]];
                                 $menuItems[] = '<li>'
-                                    . Html::beginForm(['/site/logout'], 'post')
+                                    . Html::beginForm(['../../frontend/web/site/index'], 'post')
                                     . Html::submitButton(
                                         'Logout',
+                                        // 'Logout (' . Yii::$app->user->identity->nombres . ')',
                                         ['class' => 'btn btn-link logout']
                                     )
                                     . Html::endForm()

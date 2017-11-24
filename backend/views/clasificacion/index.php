@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ClasificacionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Clasificacions';
+$this->title = 'Clasificación';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="clasificacion-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Clasificacion', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear Clasificación', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

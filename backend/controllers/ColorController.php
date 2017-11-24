@@ -66,7 +66,8 @@ class ColorController extends Controller
         $model = new Color();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_color]);
+            // return $this->redirect(['view', 'id' => $model->id_color]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,

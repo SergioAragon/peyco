@@ -26,9 +26,11 @@ class Clasificacion extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_clasifi', 'nombre'], 'required'],
-            [['id_clasifi'], 'integer'],
-            [['nombre'], 'string', 'max' => 20],
+            // [['id_clasifi', 'nombre'], 'required'],
+            [['descripcion'], 'required'],
+            // [['id_clasifi'], 'integer'],
+            [['descripcion'], 'string', 'min' => 3, 'max' => 20],
+            ['descripcion', 'match','pattern'=>"/^[a-z]+$/i",'message'=> 'Solo acepta letras'],
         ];
     }
 
@@ -39,7 +41,7 @@ class Clasificacion extends \yii\db\ActiveRecord
     {
         return [
             'id_clasifi' => 'Id Clasifi',
-            'nombre' => 'Nombre',
+            'descripcion' => 'Nombre',
         ];
     }
 }

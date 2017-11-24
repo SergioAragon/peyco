@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'cod_clasifi') ?>
 
-    <?= $form->field($model, 'dimension_producto') ?>
+    <!--?= $form->field($model, 'dimension_producto') ?-->
 
     <?php // echo $form->field($model, 'imag_adju') ?>
 
